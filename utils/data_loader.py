@@ -11,9 +11,9 @@ def load_data():
     """Carga el CSV de Airbnb directamente desde Google Drive."""
     FILE_ID = "1ZqfDMY2HeWqqnRp3Sun9l3uWpvMNMhX6"
     url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
-
     df = pd.read_csv(url)
-   
+    df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True, errors='coerce')
+    return df   
     
    # df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True, errors='coerce')
     return df

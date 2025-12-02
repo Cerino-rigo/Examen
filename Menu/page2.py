@@ -2,17 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
+from utils.data_loader import load_data
 
 st.title("📊 Análisis General de los Juegos")
 
 # Cargar datos
-@st.cache_data
-def cargar_datos():
-    df = pd.read_csv("DataAnalytics.csv")
-    df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True, errors='coerce')
-    return df
 
-df = cargar_datos()
+df = load_data ()
 
 # --- KPIs dinámicos con placeholders ---
 placeholder = st.empty()
