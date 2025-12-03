@@ -14,8 +14,5 @@ def load_airbnb_data():
     url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
 
     df = pd.read_csv(url)
-   
-    
-   # df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True, errors='coerce')
-    return df
+
     return df
